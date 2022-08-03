@@ -101,6 +101,16 @@
         app:iconTint="@color/cardview_dark_background"
         app:layout_anchor="@id/stageEditList" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/stageEditList"
+        android:layout_gravity="top"
+        android:background="@color/cardview_dark_background"
+        app:layout_anchorGravity="left"
+        app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/stageEditList"
         android:layout_width="match_parent"

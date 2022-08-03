@@ -16,28 +16,11 @@ interface OnInteractionStageListener {
 
 class StagesAdapter(
     private val onInteractionStageListener: OnInteractionStageListener,
-) : ListAdapter<Stage, StageViewHolder>(StageDiffCallback()) { //RecyclerView.Adapter<StageViewHolder>() {
+) : ListAdapter<Stage, StageViewHolder>(StageDiffCallback()) {
 
-    private val pictureId = R.drawable.zagl
 
-    //val img = (Drawable) getResources().getDrawable(R.drawable.salat) as Drawable
     val idRecipe = 1L
-    val listStage = listOf(
-        Stage(0, idRecipe, 1, "Приготовление ингридиентов", "Берем тото...", pictureId),
-        Stage(1, idRecipe, 2, "Нарезка", "Нарезаем так-то", pictureId),
-        Stage(2, idRecipe, 3, "Варка", "Варим столько-то времени", pictureId),
-        Stage(3, idRecipe, 4, "Промывка", "Под холодной водой промываем и охлаждаем", pictureId),
-        Stage(4, idRecipe, 5, "Детальная нарезка", "Мелко нарезаем", pictureId),
-        Stage(5, idRecipe, 6, "Приготовление соуса", "Смешиваем для приготовления...", pictureId),
-        Stage(6, idRecipe, 7, "Укладываем", "Расскладываем по краям тарелки...", pictureId),
-        Stage(7,
-            idRecipe,
-            8,
-            "Заправка соусом",
-            "Заправляем ингридиенты соусом следующим образом...",
-            pictureId),
-        Stage(7, idRecipe, 9, "Оформление и подача", "Подаем в охлажденном виде", pictureId)
-    )
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StageViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -46,10 +29,9 @@ class StagesAdapter(
     }
 
     override fun onBindViewHolder(holder: StageViewHolder, position: Int) {
-        val stage = getItem(position) // listStage[position] //
+        val stage = getItem(position)
         holder.bind(stage)
     }
-    //override fun getItemCount(): Int = listStage.size
 }
 
 class StageViewHolder(
@@ -75,7 +57,6 @@ fun stageBinding(
             text = "Шаг ${stage.pos}\n${stage.name}\n${stage.description}"
 
             setOnClickListener {
-                //stageImageView.visibility = View.VISIBLE
                 onInteractionStageListener.onClicked(stage)
             }
         }
