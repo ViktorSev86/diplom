@@ -43,7 +43,7 @@
         android:id="@+id/stageEdit"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:background="#E0F3FF"
+        android:background="@color/cardview_dark_background"
         android:gravity="start|top"
         android:padding="@dimen/common_spacing"
         app:layout_anchor="@id/bottomAppBar"

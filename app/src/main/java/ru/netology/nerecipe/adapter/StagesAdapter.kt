@@ -75,17 +75,12 @@ fun stageBinding(
             text = "Шаг ${stage.pos}\n${stage.name}\n${stage.description}"
 
             setOnClickListener {
-                stageImageView.visibility = View.VISIBLE
+                //stageImageView.visibility = View.VISIBLE
                 onInteractionStageListener.onClicked(stage)
             }
         }
 
-        with(stageImageView) {
-            setImageResource(R.drawable.zagl)
-//            setOnClickListener {
-//                visibility = View.GONE
-//            }
-        }
+
     }
 }
 
