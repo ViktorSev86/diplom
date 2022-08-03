@@ -18,7 +18,7 @@ class StagesAdapter(
     private val onInteractionStageListener: OnInteractionStageListener,
 ) : ListAdapter<Stage, StageViewHolder>(StageDiffCallback()) { //RecyclerView.Adapter<StageViewHolder>() {
 
-    private val pictureId = R.drawable.salat
+    private val pictureId = R.drawable.zagl
 
     //val img = (Drawable) getResources().getDrawable(R.drawable.salat) as Drawable
     val idRecipe = 1L
@@ -81,7 +81,7 @@ fun stageBinding(
         }
 
         with(stageImageView) {
-            setImageResource(R.drawable.salat)
+            setImageResource(R.drawable.zagl)
 //            setOnClickListener {
 //                visibility = View.GONE
 //            }

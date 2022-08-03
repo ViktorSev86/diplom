@@ -8,6 +8,13 @@
     android:layout_height="match_parent"
     tools:context=".activity.FeedFragment" >
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/fon"
+        android:scaleType="centerCrop"
+        android:layout_height="match_parent"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
