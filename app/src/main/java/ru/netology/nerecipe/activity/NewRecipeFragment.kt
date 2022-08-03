@@ -5,6 +5,8 @@ import android.view.*
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.activity.addCallback
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -226,6 +228,14 @@ class NewRecipeFragment : Fragment() {
             viewModelForDraft.save("")
             AndroidUtils.hideKeyboard(requireView())
             findNavController().navigateUp()
+        }
+
+        val image = registerForActivityResult(ActivityResultContracts.OpenDocument()) {
+            Snackbar.make(binding.root, it.toString(), Snackbar.LENGTH_LONG).show()
+            binding.image.setImageURI(it)
+        }
+        binding.addImage.setOnClickListener {
+            image.launch(arrayOf("image/jpeg", "image/png"))
         }
 
         return binding.root
