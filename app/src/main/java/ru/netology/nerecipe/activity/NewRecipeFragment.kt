@@ -229,7 +229,7 @@ class NewRecipeFragment : Fragment() {
             AndroidUtils.hideKeyboard(requireView())
             findNavController().navigateUp()
         }
-
+///////////////////////////////////////////////////////////////////////////////////////
         val image = registerForActivityResult(ActivityResultContracts.OpenDocument()) {
             Snackbar.make(binding.root, it.toString(), Snackbar.LENGTH_LONG).show()
             binding.image.setImageURI(it)
