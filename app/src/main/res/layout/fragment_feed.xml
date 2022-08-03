@@ -74,20 +74,7 @@
         app:layout_constraintBottom_toBottomOf="@id/footerAppBar"
         app:layout_constraintStart_toStartOf="@id/footerAppBar" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/footerMyRecipes"
-        style="@style/Widget.AppTheme.IconButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        app:iconGravity="top"
-        android:text="@string/menu_my_list"
-        android:textAllCaps="false"
-        app:icon="@drawable/ic_person_24dp"
-        app:layout_constraintTop_toTopOf="@id/footerAppBar"
-        app:layout_constraintBottom_toBottomOf="@id/footerAppBar"
-        app:layout_constraintStart_toStartOf="@id/footerAppBar"
-        app:layout_constraintEnd_toEndOf="@id/footerAppBar" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/footerFavorite"

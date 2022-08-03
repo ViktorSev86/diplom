@@ -64,7 +64,6 @@ class FeedFragment : Fragment() {
                     }
                     AndroidUtils.hideKeyboard(requireView())
                     footerList.isChecked = false
-                    footerMyRecipes.isChecked = false
                     footerFavorite.isChecked = false
                 }
                 clearText.setOnClickListener {
@@ -86,10 +85,7 @@ class FeedFragment : Fragment() {
 
                     viewModel.getByFilter("", "", "", false)
 
-                    footerMyRecipes.isChecked = false
-                    footerMyRecipes.iconTint =
-                        ColorStateList(arrayOf(states), intArrayOf(Color.DKGRAY))
-                    footerMyRecipes.setTextColor(defaultTextColor)
+
 
                     footerFavorite.isChecked = false
                     footerFavorite.iconTint =
@@ -98,28 +94,7 @@ class FeedFragment : Fragment() {
                 }
             }
 
-            with(footerMyRecipes) {
-                val states = intArrayOf(android.R.attr.state_enabled)
-                val defaultTextColor = textColors.defaultColor
 
-                setOnClickListener {
-                    isChecked = true
-                    iconTint = ColorStateList(arrayOf(states), intArrayOf(Color.BLUE))
-                    setTextColor(Color.BLUE)
-
-                    viewModel.getByFilter("", "", "", false)
-                    viewModel.getByFilterOnAuthor("Me")
-
-                    footerList.isChecked = false
-                    footerList.iconTint = ColorStateList(arrayOf(states), intArrayOf(Color.DKGRAY))
-                    footerList.setTextColor(defaultTextColor)
-
-                    footerFavorite.isChecked = false
-                    footerFavorite.iconTint =
-                        ColorStateList(arrayOf(states), intArrayOf(Color.DKGRAY))
-                    footerFavorite.setTextColor(defaultTextColor)
-                }
-            }
 
             with(footerFavorite) {
                 val states = intArrayOf(android.R.attr.state_enabled)
@@ -137,10 +112,7 @@ class FeedFragment : Fragment() {
                     footerList.iconTint = ColorStateList(arrayOf(states), intArrayOf(Color.DKGRAY))
                     footerList.setTextColor(defaultTextColor)
 
-                    footerMyRecipes.isChecked = false
-                    footerMyRecipes.iconTint =
-                        ColorStateList(arrayOf(states), intArrayOf(Color.DKGRAY))
-                    footerMyRecipes.setTextColor(defaultTextColor)
+
                 }
             }
         }
