@@ -62,7 +62,6 @@ class NewRecipeFragment : Fragment() {
         var draftContent: String? = null
 
         val idRecipe = arguments?.idSubArg?.toLong() ?: 0
-        //val stagesCount = viewModel.dataStages.value?.count() ?: 0
 
         val categoryAdapter = CategoryAdapter(object : OnInteractionCatListener {
             override fun onClicked(category: Category) {
@@ -91,10 +90,8 @@ class NewRecipeFragment : Fragment() {
         }
 
         arguments?.authorArg?.let(binding.authorEdit::setText)
-            //?: binding.authorEdit.setText("author").toString()
 
         arguments?.nameArg?.let(binding.nameEdit::setText)
-            //?: binding.nameEdit.setText("name").toString()
 
         arguments?.catArg?.let(binding.catEdit::setText)
             ?: binding.catEdit.setText("Select_Recipe_Category")
@@ -109,16 +106,12 @@ class NewRecipeFragment : Fragment() {
         arguments?.stageTextArg?.let(binding.edit::setText)
             ?: binding.edit.setText(R.string.reminder_stage_edit)
 
-        // This callback will only be called when MyFragment is at least Started.
         val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-            // Handle the back button event
-            //if (draftContent != null)
             draft = binding.edit.text.toString()
             if (::draft.isInitialized)
                 viewModelForDraft.save(draft)
             findNavController().navigateUp()
         }
-        // The callback can be enabled or disabled here or in the lambda
         callback.isEnabled = true
 
         binding.menu.setOnClickListener {
@@ -133,7 +126,6 @@ class NewRecipeFragment : Fragment() {
                                     BaseTransientBottomBar.LENGTH_INDEFINITE
                                 )
                                     .setAction(android.R.string.ok) {
-                                        //findNavController().navigateUp()
                                     }
                                     .show()
                             } else {
@@ -176,7 +168,6 @@ class NewRecipeFragment : Fragment() {
                                         BaseTransientBottomBar.LENGTH_INDEFINITE
                                     )
                                         .setAction(android.R.string.ok) {
-                                            //findNavController().navigateUp()
                                         }
                                         .show()
                                 } else {
@@ -206,7 +197,6 @@ class NewRecipeFragment : Fragment() {
                     BaseTransientBottomBar.LENGTH_INDEFINITE
                 )
                     .setAction(android.R.string.ok) {
-                        //findNavController().navigateUp()
                     }
                     .show()
                 return@setOnClickListener

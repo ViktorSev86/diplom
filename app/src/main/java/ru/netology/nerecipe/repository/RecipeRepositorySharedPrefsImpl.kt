@@ -32,16 +32,6 @@ class RecipeRepositorySharedPrefsImpl(
 
     override fun getAll(): LiveData<List<Recipe>> = data
 
-//    override fun getData(): LiveData<List<Recipe>> = data
-//    override fun getByFilter(author: String, name: String, category: String): List<Recipe>? {
-//        data.value = getAll().value?.filter { recipe ->
-//            (recipe.author == author ||
-//                    recipe.name == name ||
-//                    recipe.category == category)
-//        }
-//        return data.value
-//    }
-
     override fun getByFilter(author: String, name: String, category: String, likedByMe: Boolean) {}
     override fun getByFilterOnAuthor(author: String) {}
     override fun getByFilterOnName(name: String) {}

@@ -46,8 +46,6 @@ class NewStageFragment : Fragment() {
 
         var draftContent: String? = null
 
-        //val idRecipe = arguments?.idSubNewArg?.toLong() ?: 0L
-
         binding.subPos.text = "${resources.getString(R.string.description_pos_stage)}${arguments?.stagePosArg?.toInt()}"
         arguments?.stageNameArg?.let(binding.stageNameEdit::setText)
         arguments?.stageTextArg?.let(binding.stageEdit::setText)
@@ -57,16 +55,12 @@ class NewStageFragment : Fragment() {
                 draftContent = it.toString()
             }
 
-        // This callback will only be called when MyFragment is at least Started.
         val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-            // Handle the back button event
-            //if (draftContent != null)
             draft = binding.stageEdit.text.toString()
             if (::draft.isInitialized)
                 viewModelForDraft.save(draft)
             findNavController().navigateUp()
         }
-        // The callback can be enabled or disabled here or in the lambda
         callback.isEnabled = true
 
         binding.ok.setOnClickListener {
@@ -78,7 +72,6 @@ class NewStageFragment : Fragment() {
                     BaseTransientBottomBar.LENGTH_INDEFINITE
                 )
                     .setAction(android.R.string.ok) {
-                        //findNavController().navigateUp()
                     }
                     .show()
                 return@setOnClickListener

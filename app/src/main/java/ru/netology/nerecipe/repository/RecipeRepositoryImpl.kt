@@ -15,7 +15,6 @@ class RecipeRepositoryImpl(
     private val dao: RecipeDao,
     private val daoStage: StageDao,
 ) : RecipeRepository {
-    //private val recipes = emptyList<Recipe>() //RecipesFilled.recipesFilled.reversed()
     private val data: MutableLiveData<List<Recipe>> = Transformations.map(dao.getAll()) { list ->
         list.map {
             it.toDto()
@@ -24,24 +23,6 @@ class RecipeRepositoryImpl(
 
     private val dataRecipe = MutableLiveData(RecipesFilled.empty)
     private var dataStages: MutableLiveData<List<Stage>> = MutableLiveData(emptyList())
-//        Transformations.map(daoStage.getAll()) { list ->
-//            list.map {
-//                it.toDto()
-//            }
-//        } as MutableLiveData<List<Stage>>
-
-//    init {
-//        // для первоначальной записи первых постов
-//        //for(recipe in recipes) { dao.save(RecipeEntity.fromDto(recipe)) }
-//
-//        data.value = dao.getInitAll().let { list ->
-//            list.map {
-//                it.toDto()
-//                //recipes = listOf(it.toDto()) + recipes
-//            }
-//        }
-//        //data.value = recipes
-//    }
 
     override fun getAll() = data
     override fun getAllStages() = dataStages

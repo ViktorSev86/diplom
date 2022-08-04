@@ -63,7 +63,6 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
     fun getRecipeById(id: Long) = repository.getRecipeById(id)
     fun getByFilter(author: String, name: String, category: String, likedByMe: Boolean) =
         repository.getByFilter(author, name, category, likedByMe)
-    fun getByFilterOnAuthor(author: String) = repository.getByFilterOnAuthor(author)
     fun getByFilterOnName(name: String) = repository.getByFilterOnName(name)
     fun getByFilterOnCat(category: String) = repository.getByFilterOnCat(category)
     fun getByFilterOnLike(likedByMe: Boolean) = repository.getByFilterOnLike(likedByMe)

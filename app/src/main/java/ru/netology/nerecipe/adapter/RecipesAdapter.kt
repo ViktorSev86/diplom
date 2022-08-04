@@ -58,14 +58,11 @@ fun recipeBinding(
         author.text = recipe.author
         name.text = recipe.name
         category.text = recipe.category
-        //content.text = recipe.content
         favorite.isChecked = recipe.likedByMe
         favorite.text = recipe.likes.toString()
 
         stageContent.adapter = StagesAdapter(onInteractionStageListener = object : OnInteractionStageListener{
             override fun onClicked(stage: Stage) {
-                // TO DO("Not yet implemented")
-                //onInteractionListener.onStage(stage)
             }
         })
 
@@ -82,10 +79,6 @@ fun recipeBinding(
                             onInteractionListener.onEdit(recipe)
                             true
                         }
-//                        R.id.add -> {
-//                            onInteractionListener.onAdd()
-//                            true
-//                        }
                         else -> false
                     }
                 }

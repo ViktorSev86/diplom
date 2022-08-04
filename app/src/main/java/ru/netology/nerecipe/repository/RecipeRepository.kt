@@ -16,7 +16,6 @@ interface RecipeRepository {
     fun getByFilterOnName(name: String)
     fun getByFilterOnCat(category: String)
     fun getByFilterOnLike(likedByMe: Boolean)
-
     fun getAllStages(): LiveData<List<Stage>>
     fun getSubById(idRecipe: Long)
     fun saveSub(stage: Stage)

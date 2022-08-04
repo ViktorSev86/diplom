@@ -9,8 +9,6 @@ import ru.netology.nerecipe.entity.StageEntity
 
 @Dao
 interface RecipeDao {
-//    @Query("SELECT * FROM RecipeEntity ORDER BY id DESC")
-//    fun getInitAll(): List<RecipeEntity>
 
     @Query("SELECT * FROM RecipeEntity ORDER BY pos DESC")
     fun getAll(): LiveData<List<RecipeEntity>>
@@ -19,7 +17,6 @@ interface RecipeDao {
             " CASE WHEN :isSetFilter THEN author IN (:author)" +
             " OR name IN (:name) OR category IN (:category)" +
             " OR likedByMe IN (:likedByMe) ELSE 1 END ORDER BY pos DESC")
-//    @Query("SELECT * FROM RecipeEntity WHERE author = :author OR name = :name OR category = :category ORDER BY id DESC")
     fun getByFilter(
         isSetFilter: Boolean,
         author: String,
@@ -93,11 +90,6 @@ interface RecipeDao {
 
 @Dao
 interface StageDao {
-//    @Query("SELECT * FROM StageEntity ORDER BY pos DESC")
-//    fun getAll(): LiveData<List<StageEntity>>
-
-//    @Query("SELECT * FROM StageEntity WHERE id = :id")
-//    fun getById(id: Int): StageEntity
 
     @Query("SELECT * FROM StageEntity WHERE idRecipe IN (:idRecipe) ORDER BY pos ASC")
     fun getSubById(idRecipe: Long): List<StageEntity>
