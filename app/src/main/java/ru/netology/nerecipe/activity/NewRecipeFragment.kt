@@ -63,7 +63,7 @@ class NewRecipeFragment : Fragment() {
 
         val idRecipe = arguments?.idSubArg?.toLong() ?: 0
 
-        val categoryAdapter = CategoryAdapter(object : OnInteractionCatListener {
+        val categoryAdapter = CategoryNewRecipeAdapterAdapter(object : OnInteractionCatListener {
             override fun onClicked(category: Category) {
                 binding.catEdit.text = category.titleRu.trim()
             }
@@ -189,8 +189,7 @@ class NewRecipeFragment : Fragment() {
             if (
                 binding.authorEdit.text.isNullOrBlank() ||
                 binding.nameEdit.text.isNullOrBlank() ||
-                cat == "Select_Recipe_Category" ||
-                cat == categoryAdapter.listCategory[0].titleRu.trim()
+                cat == "Select_Recipe_Category"
             ) {
                 Snackbar.make(
                     binding.root, R.string.error_empty_content,
